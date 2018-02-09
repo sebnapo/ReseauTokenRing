@@ -77,17 +77,19 @@ class Computer(object):
                     try:
                         messageNumberInt=int(float(messagenumber))
                     except:
-                            messageNumberInt=-2
-                    if lastReceived==-1000:
+                        messageNumberInt=-2
+                    if lastReceived == (-1000):
                         lastReceived=messageNumberInt-1
-    
+                    print("MessageNumber for outofnumber : ", messageNumberInt, lastReceived)
                     if messageNumberInt != lastReceived+1:
                         outOfOrder=outOfOrder+1
                         thisCorrect=False
 
 
+
                 if thisCorrect:
                     correct=correct+1
+                    lastReceived = messageNumberInt
             if self.__loopCounter % self.__statusUpdateSeconds == 0:
                 self.__debugOut.debugOutSource(self.__ownIdentifier, self.__debugOut.srcApplication,self.__debugOut.INFO,"%s: === Application Status of Computer %s after %.1f seconds:" % (self.__ownIdentifier, self.__ownIdentifier,(time.clock()-self.__appStartedTime)))
                 self.__debugOut.debugOutSource(self.__ownIdentifier, self.__debugOut.srcApplication,self.__debugOut.INFO,"%s: === Received %d messages with %d correct (%d out of order, %d wrong destination, %d wrong application)\n" % (self.__ownIdentifier, totalNumber, correct, outOfOrder, wrongDestination, wrongApplicationPort))

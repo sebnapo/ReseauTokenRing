@@ -81,6 +81,7 @@ class NetworkStack(object):
         time.sleep(self.__layerDelay)
         self.outgoingPacketStackLock.acquire()
         if len(self.outgoingPacketStack)==0 or forceToken:
+            print("passage dans le mauvais IF", forceToken, self.outgoingPacketStack)
             destination="X"
             applicationPort=20
             sdu="TOKEN"
@@ -120,7 +121,8 @@ class NetworkStack(object):
         if(pdu != b'\x14TOKEN'):
             pdutest = pdu.decode("utf-8")
             (message,test,destination) = pdutest.partition(",")
-            (prout,destination) = destination.partition(",")
+            print("La destination qui fais chier ",destination)
+            (test,virugule,destination) = destination.partition(",")
         if interface == 0 : # same ring
             print(destination, self.__ownIdentifier,'GROS BIGUP')
             if(destination != self.__ownIdentifier):

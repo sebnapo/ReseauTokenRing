@@ -45,7 +45,6 @@ if __name__ == '__main__':
     # Computers (Nodes) are added automatically unless contained in ignoreComputers
     # The layerSelection determines the layers that are displayed graphically
     debugGui=DebugGui(ignoreComputer=["PhyMaster","Main"],layerSelection=[1,2,16,15,14,13,12,11],geometry="1800x1000+10+10",macosTkinterWorkaround=macosTkinterWorkaround)
-    
     # This should be outdated
     # __debugOut.debugOutSource("Main",__debugOut.srcComputer,__debugOut.INFO,"Attention : les messages ne s'affichent pas toujours de façon séquentielle !")
     # __debugOut.debugOutSource("Main",__debugOut.srcComputer,__debugOut.INFO,"=> il faut donc souvent les ré-ordonner.\n")
@@ -87,7 +86,7 @@ if __name__ == '__main__':
 
     # Start sending some messages from computer 'A' to computer 'B'
     __debugOut.debugOutSource("Main",__debugOut.srcComputer,__debugOut.INFO,"Starting some message from A to B")
-    computer1.appMessageSend(destinationIdentifier="B", numberOfMessages=2)
+    computer1.appMessageSend(destinationIdentifier="B", numberOfMessages=5)
     
     # Start sending some messages from computer 'B' to computer 'A'
     __debugOut.debugOutSource("Main",__debugOut.srcComputer,__debugOut.INFO,"Starting some message from B to A")
